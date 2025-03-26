@@ -20,7 +20,7 @@ function Login() {
                     </label>
                     <input 
                       type="email" 
-                      className="form-control bg-secondary text-white" 
+                      className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="email" 
                       placeholder="Enter your email"
                     />
@@ -32,7 +32,7 @@ function Login() {
                     </label>
                     <input 
                       type="password" 
-                      className="form-control bg-secondary text-white" 
+                      className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="password" 
                       placeholder="Enter password"
                     />
@@ -52,7 +52,7 @@ function Login() {
 
                 <div className="text-center mt-3">
                   <small className="text-white">
-                    No account? <a href="/login" className="text-white">Signup</a>
+                    No account? <a href="/signup" className="text-white">Signup</a>
                   </small>
                 </div>
               </div>

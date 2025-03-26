@@ -2,8 +2,13 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+}
 
-  
+body {
+  font-family: 'Poppins', sans-serif;
+}
 
-  
-
+/* Override Bootstrap's default font */
+* {
+  font-family: 'Poppins', sans-serif !important;
+}

@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-black bg-opacity-90">
         <div className="container-fluid d-flex align-items-center">
           {/* Brand Name */}
           <a className="navbar-brand text-white" href="/">
@@ -42,7 +42,7 @@ function Header() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="#">
+                <a className="nav-link text-white" href="/task">
                   Task
                 </a>
               </li>
@@ -61,7 +61,9 @@ function Header() {
 
           {/* Sign Up Button */}
           <div className="d-none d-lg-flex">
-            <button className="btn btn-primary text-white">
+            <button className="btn btn-primary text-white " onClick={()=> {
+              window.location.href="/signup"
+            }}>
               Sign Up
             </button>
           </div>

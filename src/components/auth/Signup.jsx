@@ -18,7 +18,7 @@ function Signup() {
                     </label>
                     <input 
                       type="text" 
-                      className="form-control bg-secondary text-white" 
+                      className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="name" 
                       placeholder="Enter your name"
                     />
@@ -30,7 +30,7 @@ function Signup() {
                     </label>
                     <input 
                       type="email" 
-                      className="form-control bg-secondary text-white" 
+                      className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="email" 
                       placeholder="Enter your email"
                     />
@@ -42,7 +42,7 @@ function Signup() {
                     </label>
                     <input 
                       type="password" 
-                      className="form-control bg-secondary text-white" 
+                      className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="password" 
                       placeholder="Create a strong password"
                     />
@@ -54,7 +54,7 @@ function Signup() {
                     </label>
                     <input 
                       type="text" 
-                      className="form-control bg-secondary text-black" 
+                      className="form-control bg-secondary border-black shadow-sm text-black" 
                       id="phone" 
                       placeholder="Enter your phone number"
                     />
@@ -63,7 +63,7 @@ function Signup() {
                   <div className="d-grid">
                     <button 
                       type="submit" 
-                      className="btn btn-primary btn-lg"
+                      className="btn btn-primary btn-lg "
                     >
                       Sign Up
                     </button>
