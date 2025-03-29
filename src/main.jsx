@@ -9,6 +9,9 @@ import Login from "./components/auth/Login.jsx";
 import Home from "./components/Home.jsx";
 import TaskList from "./components/TaskList.jsx";
 import Dashboard from "./components/Dashboard.jsx";
+import Protected from "./components/auth/Protected.jsx";
+import { AuthProvider } from "./components/auth/AuthContext.jsx";
+import AddTask from "./components/AddTask.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,12 +31,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/task",
-        element: <TaskList />,
+        element: 
+        <Protected authenticated={true}>
+          <TaskList />
+        </Protected>,
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: 
+        <Protected authenticated={true}>
+          <Dashboard />
+        </Protected>,
       },
+      {
+        path: "/task/add",
+        element: 
+        <Protected authenticated={true}>
+          <AddTask />
+        </Protected>,
+      }
       
     ],
   },
@@ -41,6 +57,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <AuthProvider>
       <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

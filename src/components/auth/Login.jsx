@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
+const Login = () => {
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-function Login() {
+  const { login } = useContext(AuthContext);  
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    
+      console.log("Entered Login");
+      const response = await login(email, password);
+      console.log("Done Login");
+      console.log(response);
+      navigate('/');
+    
+    
+  }
+
   return (
     <div className="vh-100 bg-black d-flex align-items-center">
       <div className="container">
@@ -12,7 +32,8 @@ function Login() {
               <div className="card-body p-5">
                 <h2 className="card-title text-center mb-4 fw-bold">Log In</h2>
                 
-                <form>
+                <form onSubmit={handleLogin}>
+                  {error && <div className="alert alert-danger">{error}</div>}
                   
                   <div className="mb-5">
                     <label htmlFor="email" className="form-label">
@@ -22,7 +43,9 @@ function Login() {
                       type="email" 
                       className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="email" 
+                      value={email}
                       placeholder="Enter your email"
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
 
@@ -34,7 +57,9 @@ function Login() {
                       type="password" 
                       className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="password" 
+                      value={password}
                       placeholder="Enter password"
+                      onChange={(e)=> setPassword(e.target.value)}
                     />
                   </div>
 
@@ -45,7 +70,7 @@ function Login() {
                       type="submit" 
                       className="btn btn-primary btn-lg"
                     >
-                      Login
+                      Log In
                     </button>
                   </div>
                 </form>
@@ -62,6 +87,6 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

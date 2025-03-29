@@ -1,8 +1,10 @@
-import React from "react";
+import React, {  } from "react";
 import "./Home.css";
 import { Typewriter } from "react-simple-typewriter";
 
 function Home() {
+
+  
   return (
     <div className="bg-black text-white "style={{
       background:

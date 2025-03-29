@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AuthContext } from './AuthContext';
+import { useNavigate } from 'react-router-dom';
 
-function Signup() {
+const Signup = () => {
+
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
+  const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+  const { signup } = useContext(AuthContext);
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    console.log("Entered Signup");
+    await signup({ name, email, password, phone });
+    console.log("Done Signup");
+    navigate('/login');
+    console.log("Navigated to Login");
+    
+  }
+
   return (
     <div className="vh-100 bg-black d-flex align-items-center">
       <div className="container">
@@ -11,7 +33,8 @@ function Signup() {
               <div className="card-body p-5">
                 <h2 className="card-title text-center mb-4 fw-bold">Create Account</h2>
                 
-                <form>
+                <form onSubmit={handleSignup}>
+                  {error && <div className="alert alert-danger">{error}</div>}
                   <div className="mb-3">
                     <label htmlFor="name" className="form-label">
                       <i className="bi bi-person me-2"></i>Name
@@ -20,6 +43,8 @@ function Signup() {
                       type="text" 
                       className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="name" 
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       placeholder="Enter your name"
                     />
                   </div>
@@ -32,6 +57,8 @@ function Signup() {
                       type="email" 
                       className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="email" 
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
                     />
                   </div>
@@ -44,6 +71,8 @@ function Signup() {
                       type="password" 
                       className="form-control bg-secondary border-black shadow-sm text-white" 
                       id="password" 
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       placeholder="Create a strong password"
                     />
                   </div>
@@ -56,6 +85,8 @@ function Signup() {
                       type="text" 
                       className="form-control bg-secondary border-black shadow-sm text-black" 
                       id="phone" 
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
                       placeholder="Enter your phone number"
                     />
                   </div>
