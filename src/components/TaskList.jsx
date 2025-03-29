@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const TaskCard = ({ task, onClick }) => (
+const TaskCard = ({ task }) => (
   <div
     className="card mb-3 bg-dark text-white shadow-sm border-0"
-    // onClick={onClick}
     style={{ cursor: 'pointer' }}
   >
     <div className="card-body">
@@ -68,7 +67,8 @@ function TaskList() {
           setLoading(false);
         }, 1000);
       } catch (err) {
-        setError('Failed to fetch tasks. Please try again later.');
+        setError('Failed to fetch tasks. Please try again later.', err);
+        console.error(err);
         setLoading(false);
       }
     };
@@ -77,7 +77,7 @@ function TaskList() {
   }, []);
 
   const handleTaskClick = (task) => {
-    navigate(`/tasks/${task.id}`);
+    navigate(`/task/${task.id}`);
   };
 
   const filteredTasks = searchQuery
@@ -125,7 +125,7 @@ function TaskList() {
         ) : (
           <div>
             {filteredTasks.map((task) => (
-              <TaskCard key={task.id} task={task} onClick={() => handleTaskClick(task)} />
+              <TaskCard key={task.id} task={task} />
             ))}
           </div>
         )}

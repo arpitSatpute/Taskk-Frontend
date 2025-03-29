@@ -8,6 +8,7 @@ import Signup from "./components/auth/Signup.jsx";
 import Login from "./components/auth/Login.jsx";
 import Home from "./components/Home.jsx";
 import TaskList from "./components/TaskList.jsx";
+import Dashboard from "./components/Dashboard.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/task",
         element: <TaskList />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
       },
       
     ],

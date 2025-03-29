@@ -47,7 +47,7 @@ function Header() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="#">
+                <a className="nav-link text-white" href="/dashboard">
                   Dashboard
                 </a>
               </li>

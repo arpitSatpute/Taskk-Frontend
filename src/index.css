@@ -12,3 +12,38 @@ body {
 * {
   font-family: 'Poppins', sans-serif !important;
 }
+
+/* Circular Progress Bar */
+.progress-circle {
+  --size: 100px; /* Size of the circle */
+  --thickness: 10px; /* Thickness of the progress bar */
+  --percentage: 0; /* Percentage of completion */
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: conic-gradient(
+    #28a745 calc(var(--percentage) * 1%), 
+    #343a40 0
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-circle-inner {
+  width: calc(var(--size) - var(--thickness) * 2);
+  height: calc(var(--size) - var(--thickness) * 2);
+  background: #343a40; /* Background color inside the circle */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-circle-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
