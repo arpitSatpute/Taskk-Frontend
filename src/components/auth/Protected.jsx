@@ -55,7 +55,6 @@ const Protected = ({ children, authenticated }) => {
         return;
       }
 
-      console.log("Token decoded:", decoded);
     } catch (error) {
       console.error("Error decoding token:", error);
       navigate("/login");

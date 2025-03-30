@@ -14,16 +14,16 @@ function Footer() {
             <p className="text-white-50 mb-2">Your efficient task management solution</p>
             <p className="text-white-50 small">Helping you stay productive since 2024</p>
             <div className="d-flex gap-3 mt-3">
-              <a href="#" className="text-white hover-opacity">
+              <a href="https://github.com/arpitSatpute" className="text-white hover-opacity">
                 <FaGithub size={20} />
               </a>
-              <a href="#" className="text-white hover-opacity">
+              <a href="https://x.com/arpit_jsx" className="text-white hover-opacity">
                 <FaTwitter size={20} />
               </a>
-              <a href="#" className="text-white hover-opacity">
+              <a href="https://www.linkedin.com/in/arpitsatpute/" className="text-white hover-opacity">
                 <FaLinkedin size={20} />
               </a>
-              <a href="mailto:contact@taskk.app" className="text-white hover-opacity">
+              <a href="mailto:arpitrameshsatpute6986@gmail.com" className="text-white hover-opacity">
                 <FaEnvelope size={20} />
               </a>
             </div>
@@ -34,19 +34,17 @@ function Footer() {
             <h5 className="font-monospace mb-3">Quick Links</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <a href="#" className="text-light-50 text-decoration-none hover-light">Home</a>
+                <a href="/" className="text-light-50 text-decoration-none hover-light">Home</a>
               </li>
               <li className="mb-2">
                 <a href="#" className="text-light-50 text-decoration-none hover-light">Features</a>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-light-50 text-decoration-none hover-light">Dashboard</a>
+                <a href="/dashboard" className="text-light-50 text-decoration-none hover-light">Dashboard</a>
               </li>
-              <li className="mb-2">
-                <a href="#" className="text-light-50 text-decoration-none hover-light">About Us</a>
-              </li>
+             
               <li>
-                <a href="#" className="text-light-50 text-decoration-none hover-light">Contact</a>
+                <a href="/task" className="text-light-50 text-decoration-none hover-light">Task</a>
               </li>
             </ul>
           </div>
@@ -54,18 +52,8 @@ function Footer() {
           {/* Contact/Newsletter */}
           <div className="col-6 col-md-4">
             <h5 className="font-monospace mb-3">Stay Updated</h5>
-            <p className="text-white small mb-3">Subscribe to our newsletter for tips and updates.</p>
-            <div className="input-group mb-3">
-              <input
-                type="email"
-                className="form-control bg-dark text-white border-secondary"
-                placeholder="Your email"
-                aria-label="Your email"
-              />
-              <button className="btn btn-info" type="button">
-                Subscribe
-              </button>
-            </div>
+            <p className="text-white small mb-3">Stay tuned for new features.</p>
+            <h3>Thanks for visiting !!!</h3>
             <p className="text-white small">We respect your privacy</p>
           </div>
         </div>

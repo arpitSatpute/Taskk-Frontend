@@ -36,11 +36,7 @@ function Header() {
                   Home
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link text-white" href="#">
-                  About
-                </a>
-              </li>
+              
               <li className="nav-item">
                 <a className="nav-link text-white" href="/task">
                   Task
@@ -51,11 +47,7 @@ function Header() {
                   Dashboard
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link text-white" href="#">
-                  Pending
-                </a>
-              </li>
+              
             </ul>
           </div>
 

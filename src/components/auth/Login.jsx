@@ -15,9 +15,8 @@ const Login = () => {
     e.preventDefault();
     
       console.log("Entered Login");
-      const response = await login(email, password);
+      await login(email, password);
       console.log("Done Login");
-      console.log(response);
       navigate('/');
     
     

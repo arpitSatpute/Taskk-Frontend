@@ -13,7 +13,6 @@ export const AuthProvider = ({children}) => {
         localStorage.setItem('accessToken', accessToken);
         
         console.log('Login successful');
-        console.log(accessToken);
         return response.data;
         }
         
@@ -27,7 +26,6 @@ export const AuthProvider = ({children}) => {
         try {
             const response = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}auth/signup`, data);
             console.log('Signup successful');
-            console.log(response.data);
             return response.data;
         } catch(error) {
             console.error('Signup failed:', error);

@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import apiClient from './auth/ApiClient';
 
-const TaskCard = ({ task, onStatusUpdate }) => {
-  console.log('Task in TaskCard:', task); // Debugging
+const TaskCard = ({ task, onStatusUpdate, deleteTask }) => {
   return (
     <div
       className="card mb-3 bg-dark text-white shadow-sm border-0"
@@ -17,15 +16,19 @@ const TaskCard = ({ task, onStatusUpdate }) => {
             <p className="card-text text-white">{task.taskDescription}</p>
           </div>
           <div className="d-flex align-items-center justify-content-end gap-5">
-            <span
-              className={`badge ${
-                task.taskStatus === 'COMPLETED'
-                  ? 'bg-success'
-                  : 'bg-warning text-dark'
-              }`}
-            >
-              {task.taskStatus}
-            </span>
+          <span
+            className={`badge ${
+              task.taskStatus === 'COMPLETED'
+                ? 'bg-success'
+                : task.taskStatus === 'PENDING'
+                ? 'bg-secondary'
+                : task.taskStatus === 'ONGOING'
+                ? 'bg-warning text-dark'
+                : 'bg-light text-dark'
+            }`}
+          >
+            {task.taskStatus}
+          </span>
             <div className="d-flex align-items-center justify-content-end gap-3">
               <button
                 className="btn btn-success"
@@ -33,7 +36,8 @@ const TaskCard = ({ task, onStatusUpdate }) => {
               >
                 <i className="bi bi-pencil fs-5"></i>
               </button>
-              <button className="btn btn-danger">
+              <button className="btn btn-danger"
+                onClick={() => deleteTask(task.taskId)}>
                 <i className="bi bi-trash fs-5"></i>
               </button>
             </div>
@@ -82,9 +86,21 @@ function TaskList() {
     try {
       const response = await apiClient.put(`api/v1/task/update/${task.taskId}`);
       console.log('Task updated:', response.data);
+      window.location.reload();
     } catch (error) {
       console.error('Error updating task:', error);
       setError('Failed to update task. Please try again later.');
+    }
+  };
+
+  const handleDeleteTask = async (taskId) => {
+    try{
+      const response = await apiClient.delete(`api/v1/task/delete/${taskId}`);
+      console.log('Task deleted:', response.data);
+      window.location.reload();
+    } catch (error) {
+      console.log('Error deleting task:', error);
+      setError('Failed to delete task. Please try again later.');
     }
   };
   
@@ -136,6 +152,16 @@ function TaskList() {
               >
                 <i className="bi bi-check-circle"></i>
               </button>
+              <button
+                className={`btn ${
+                  statusFilter === 'PENDING'
+                    ? 'btn-secondary'
+                    : 'btn-outline-secondary'
+                } btn-lg`}
+                onClick={() => setStatusFilter('PENDING')}
+              >
+                <i className="bi bi-hourglass"></i>
+              </button>
             </div>
           </div>
           <div className="input-group text-white mt-2">
@@ -160,12 +186,12 @@ function TaskList() {
           <div className="text-center text-secondary">No tasks found</div>
         ) : (
           <div>
-            {console.log('Filtered tasks:', filteredTasks)} {/* Debugging */}
             {filteredTasks.map((task, index) => (
               <TaskCard
                 key={task.id || index} // Use task.id or fallback to index
                 task={task}
                 onStatusUpdate={() => handleStatusUpdate(task)}
+                deleteTask={()=> handleDeleteTask(task.taskId)}
               />
             ))}
           </div>
