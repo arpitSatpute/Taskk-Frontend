@@ -7,11 +7,13 @@ import Layout from "./components/Layout/Layout.jsx";
 import Signup from "./components/auth/Signup.jsx";
 import Login from "./components/auth/Login.jsx";
 import Home from "./components/Home.jsx";
-import TaskList from "./components/TaskList.jsx";
-import Dashboard from "./components/Dashboard.jsx";
+import TaskList from "./components/task/TaskList.jsx";
+import Dashboard from "./components/progress/Dashboard.jsx";
 import Protected from "./components/auth/Protected.jsx";
 import { AuthProvider } from "./components/auth/AuthContext.jsx";
-import AddTask from "./components/AddTask.jsx";
+import AddTask from "./components/task/AddTask.jsx";
+import Contact from "./components/Contact.jsx";
+import About from "./components/About.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/task",
