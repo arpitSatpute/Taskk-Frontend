@@ -1,197 +1,356 @@
-import React, {  } from "react";
-import "./Home.css";
-import { Typewriter } from "react-simple-typewriter";
+import React from "react";
+import { CheckCircle, Shield, BarChart3, Clock, Award, TrendingUp, ArrowRight } from "lucide-react";
 
 function Home() {
+  const features = [
+    {
+      icon: <CheckCircle size={24} />,
+      title: "Smart Task Management",
+      description: "Create, organize, and track tasks with an intuitive interface designed for productivity.",
+      color: "#3b82f6"
+    },
+    {
+      icon: <Shield size={24} />,
+      title: "Secure & Private",
+      description: "Your data is protected with advanced encryption and security protocols.",
+      color: "#10b981"
+    },
+    {
+      icon: <BarChart3 size={24} />,
+      title: "Real-time Analytics",
+      description: "Track your progress with daily and weekly performance insights.",
+      color: "#f59e0b"
+    },
+    {
+      icon: <Clock size={24} />,
+      title: "Never Miss Deadlines",
+      description: "Get timely notifications to stay on top of your important tasks.",
+      color: "#06b6d4"
+    },
+    {
+      icon: <Award size={24} />,
+      title: "Achievement System",
+      description: "Stay motivated with daily and weekly scores that track your productivity.",
+      color: "#8b5cf6"
+    },
+    {
+      icon: <TrendingUp size={24} />,
+      title: "Progress Tracking",
+      description: "Visualize your journey with detailed performance metrics over time.",
+      color: "#ef4444"
+    },
+  ];
 
-  
   return (
-    <div className="bg-black text-white "style={{
-      background:
-        "linear-gradient(to right, rgba(0, 1, 0, 0.3), rgba(253, 254, 253, 0.3))",
-      backdropFilter: "blur(10px)",
-    }}>
-      <div className="container py-4">
-        {/* Header Section */}
-        <section className="row justify-content-center min-vh-100 align-items-center">
-          <div className="col-12 col-md-10 col-lg-8 text-center mb-5">
-            <p
-              className="my-4 fw-bold font-monospace "
-              style={{ fontSize: "3.5rem" }}
+    <div style={{ backgroundColor: "#0a0a0a", minHeight: "100vh" }}>
+      {/* Hero Section */}
+      <section
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "6rem 1.5rem",
+          textAlign: "center",
+        }}
+      >
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <div
+            style={{
+              display: "inline-block",
+              padding: "0.5rem 1rem",
+              backgroundColor: "rgba(59, 130, 246, 0.1)",
+              border: "1px solid rgba(59, 130, 246, 0.2)",
+              borderRadius: "9999px",
+              fontSize: "0.875rem",
+              color: "#3b82f6",
+              marginBottom: "2rem",
+            }}
+          >
+            Productivity Redefined
+          </div>
+          
+          <h1
+            style={{
+              fontSize: "3.5rem",
+              fontWeight: 700,
+              lineHeight: 1.1,
+              marginBottom: "1.5rem",
+              background: "linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            Organize Your Life,
+            <br />
+            <span
+              style={{
+                background: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
             >
-              <Typewriter
-                words={["Welcome to Taskk...."]}
-                loop={false}
-                cursor
-                cursorStyle="|"
-                typeSpeed={110}
-                deleteSpeed={50}
-              />
+              One Task at a Time
+            </span>
+          </h1>
+
+          <p
+            style={{
+              fontSize: "1.125rem",
+              color: "#a0a0a0",
+              lineHeight: 1.7,
+              marginBottom: "2.5rem",
+              maxWidth: "600px",
+              margin: "0 auto 2.5rem",
+            }}
+          >
+            A minimal, focus-friendly task management app that helps you stay productive
+            with smart tracking and insightful analytics.
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <button
+              onClick={() => (window.location.href = "/signup")}
+              style={{
+                padding: "0.875rem 2rem",
+                background: "#3b82f6",
+                color: "#ffffff",
+                border: "none",
+                borderRadius: "0.5rem",
+                fontSize: "1rem",
+                fontWeight: 500,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                transition: "all 150ms",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#2563eb";
+                e.target.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "#3b82f6";
+                e.target.style.transform = "translateY(0)";
+              }}
+            >
+              Start Free Today
+              <ArrowRight size={18} />
+            </button>
+
+            <button
+              onClick={() => (window.location.href = "/dashboard")}
+              style={{
+                padding: "0.875rem 2rem",
+                background: "transparent",
+                color: "#ffffff",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                borderRadius: "0.5rem",
+                fontSize: "1rem",
+                fontWeight: 500,
+                cursor: "pointer",
+                transition: "all 150ms",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = "#1a1a1a";
+                e.target.style.borderColor = "rgba(255, 255, 255, 0.2)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = "transparent";
+                e.target.style.borderColor = "rgba(255, 255, 255, 0.1)";
+              }}
+            >
+              View Demo
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "6rem 1.5rem",
+        }}
+      >
+        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+          <h2
+            style={{
+              fontSize: "2.5rem",
+              fontWeight: 700,
+              marginBottom: "1rem",
+              color: "#ffffff",
+            }}
+          >
+            Everything You Need
+          </h2>
+          <p
+            style={{
+              fontSize: "1.125rem",
+              color: "#a0a0a0",
+              maxWidth: "600px",
+              margin: "0 auto",
+            }}
+          >
+            Powerful features designed to help you stay organized and productive
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "1.5rem",
+          }}
+        >
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              style={{
+                padding: "2rem",
+                background: "#141414",
+                border: "1px solid rgba(255, 255, 255, 0.06)",
+                borderRadius: "1rem",
+                transition: "all 200ms",
+                cursor: "default",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow = "0 10px 30px -10px rgba(0, 0, 0, 0.5)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.06)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  background: `${feature.color}15`,
+                  borderRadius: "0.75rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "1.5rem",
+                  color: feature.color,
+                }}
+              >
+                {feature.icon}
+              </div>
+              <h3
+                style={{
+                  fontSize: "1.25rem",
+                  fontWeight: 600,
+                  marginBottom: "0.75rem",
+                  color: "#ffffff",
+                }}
+              >
+                {feature.title}
+              </h3>
+              <p
+                style={{
+                  fontSize: "0.9375rem",
+                  color: "#a0a0a0",
+                  lineHeight: 1.6,
+                }}
+              >
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "6rem 1.5rem",
+        }}
+      >
+        <div
+          style={{
+            padding: "4rem 2rem",
+            background: "linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)",
+            border: "1px solid rgba(255, 255, 255, 0.06)",
+            borderRadius: "1.5rem",
+            textAlign: "center",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background:
+                "radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
+            }}
+          />
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <h2
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: 700,
+                marginBottom: "1rem",
+                color: "#ffffff",
+              }}
+            >
+              Ready to Get Started?
+            </h2>
+            <p
+              style={{
+                fontSize: "1.125rem",
+                color: "#a0a0a0",
+                marginBottom: "2rem",
+                maxWidth: "600px",
+                margin: "0 auto 2rem",
+              }}
+            >
+              Join thousands of users who are already managing their tasks more efficiently
             </p>
-            <div className="px-3 px-md-4">
-              <p className="lh-lg mb-3 text-justify fs-6">
-                Taskk is a user-friendly task management application designed to
-                help you organize and track your daily tasks efficiently. With
-                features like adding, updating, and deleting tasks, it
-                encourages productivity and ensures timely execution of your
-                goals.
-              </p>
-              <p className="lh-lg text-justify fs-6">
-                Taskk's features highlight its reliability as a task management
-                application. Users can easily add, delete, and update tasks,
-                ensuring flexibility in managing their workflow. The app
-                provides a list of pending tasks, helping users stay organized.
-                Real-time tracking of Daily and Weekly Scores motivates users to
-                achieve their goals. Additionally, notifications ensure users
-                never miss important tasks, making Taskk a dependable
-                productivity tool.
-              </p>
-            </div>
+            <button
+              onClick={() => (window.location.href = "/signup")}
+              style={{
+                padding: "1rem 2.5rem",
+                background: "#3b82f6",
+                color: "#ffffff",
+                border: "none",
+                borderRadius: "0.5rem",
+                fontSize: "1rem",
+                fontWeight: 500,
+                cursor: "pointer",
+                transition: "all 150ms",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#2563eb";
+                e.target.style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "#3b82f6";
+                e.target.style.transform = "translateY(0)";
+              }}
+            >
+              Create Your Free Account
+            </button>
           </div>
-        </section>
-
-        {/* Action Buttons */}
-
-        {/* Features Section */}
-        <section>
-          <h2 className="text-center my-5 font-monospace fw-bold">FEATURES</h2>
-          <div className="row justify-content-center">
-            {/* Task Card */}
-            <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <div className="card h-100 bg-info bg-opacity-70 custom-shadow hover-scale">
-                <div className="card-body d-flex flex-column">
-                  <h3 className="card-title text-center text-white mb-3 p-4">
-                    Task
-                  </h3>
-                  <hr />
-                  <p className="card-text text-center mt-auto p-4">
-                    You can create n number of tasks. Update their status as per
-                    your execution.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Security Card */}
-            <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <div
-                className="card h-100 custom-shadow hover-scale"
-                style={{ backgroundColor: "rgb(62, 162, 60, 0.90)" }}
-              >
-                <div className="card-body d-flex flex-column">
-                  <h3 className="card-title text-center text-white mb-3 p-4">
-                    Security
-                  </h3>
-                  <hr />
-                  <p className="card-text text-center mt-auto p-4">
-                    Taskk is equipped with advanced security protocols to keep
-                    user data safe.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Dashboard Card */}
-            <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <div className="card h-100 bg-warning bg-opacity-70 custom-shadow hover-scale">
-                <div className="card-body d-flex flex-column">
-                  <h3 className="card-title text-center text-white mb-3 p-4">
-                    Dashboard
-                  </h3>
-                  <hr />
-                  <p className="card-text text-center mt-auto p-4">
-                    Every user will get a personalised dashboard. It updates in
-                    real-time after signup.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <div className="card h-100 bg-warning bg-opacity-90 custom-shadow hover-scale">
-                <div className="card-body d-flex flex-column">
-                  <h3 className="card-title text-center text-white mb-3 p-4">
-                    Pending
-                  </h3>
-                  <hr />
-                  <p className="card-text text-center mt-auto p-4">
-                    Pending tasks are updated daily and displayed for better
-                    organization.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Daily Score Card */}
-            <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <div
-                className="card h-100 custom-shadow hover-scale"
-                style={{ backgroundColor: "rgb(62, 162, 60, 0.90)" }}
-              >
-                <div className="card-body d-flex flex-column">
-                  <h3 className="card-title text-center text-white mb-3 p-4">
-                    Daily Score
-                  </h3>
-                  <hr />
-                  <p className="card-text text-center mt-auto p-4">
-                    Users can analyze their daily work progress with real-time
-                    updates.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Weekly Score Card */}
-            <div className="col-12 col-md-6 col-lg-4 mb-4">
-              <div className="card h-100 bg-info bg-opacity-90 custom-shadow hover-scale">
-                <div className="card-body d-flex flex-column">
-                  <h3 className="card-title text-center text-white mb-3 p-4">
-                    Weekly Score
-                  </h3>
-                  <hr />
-                  <p className="card-text text-center mt-auto p-4">
-                    View performance analysis of the past 7 days to improve
-                    productivity.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="py-5">
-              <div className="container">
-                <div className="position-relative overflow-hidden rounded">
-                  <div
-                    className="position-absolute top-0 start-0 w-100 h-100 bg-gradient"
-                    style={{
-                      background:
-                        "linear-gradient(to right, rgba(0, 128, 0, 0.3), rgba(0, 100, 0, 0.3))",
-                      backdropFilter: "blur(10px)",
-                    }}
-                  ></div>
-                  <div className="position-relative text-center p-4 p-md-5">
-                    <h2 className="display-5 fw-bold text-white mb-4">
-                      Ready to Schedule Your Day?
-                    </h2>
-                    <p
-                      className="text-light mb-4 mx-auto"
-                      style={{ maxWidth: "600px" }}
-                    >
-                      Join us for a better experience in
-                      <span className="text-warning"> Taskk</span> and start
-                      shaping the future
-                    </p>
-                    <button className="btn btn-success px-4 py-2 fw-bold" onClick={()=>{
-                      window.location.href="/signup"
-                    }}>
-                      Join Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
