@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { AuthContext } from './AuthContext';
+import taskkLogo from '../../assets/taskkLogo.png';
 const Login = () => {
 
   const [email, setEmail] = useState('');
@@ -52,18 +53,18 @@ const Login = () => {
             style={{
               width: '56px',
               height: '56px',
-              background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-              borderRadius: '1rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '1.75rem',
-              fontWeight: 700,
-              color: '#ffffff',
               margin: '0 auto 1rem',
             }}
           >
-            T
+            <img
+              src={taskkLogo}
+              alt="Taskk Logo"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+              }}
+            />
           </div>
           <h1
             style={{

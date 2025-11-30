@@ -1,6 +1,7 @@
 // src/components/ModernFooter.jsx
 import React from 'react';
 import { Github, Twitter, Linkedin, Mail, Heart } from 'lucide-react';
+import taskkLogo from '../../assets/taskkLogo.png';
 
 function ModernFooter() {
   const currentYear = new Date().getFullYear();
@@ -47,23 +48,18 @@ function ModernFooter() {
             <div style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '0.5rem',
+              gap: '0.75rem',
               marginBottom: '1rem',
             }}>
-              <div style={{
-                width: '32px',
-                height: '32px',
-                background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-                borderRadius: '0.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '1.25rem',
-                fontWeight: 700,
-                color: '#ffffff',
-              }}>
-                T
-              </div>
+              <img
+                src={taskkLogo}
+                alt="Taskk Logo"
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  objectFit: 'contain',
+                }}
+              />
               <span style={{
                 fontSize: '1.25rem',
                 fontWeight: 700,

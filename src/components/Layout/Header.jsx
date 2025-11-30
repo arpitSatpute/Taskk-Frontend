@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Home, CheckSquare, BarChart2, LogOut, Info, Mail } from "lucide-react";
+import taskkLogo from "../../assets/taskkLogo.png";
 
 function ModernHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,23 +59,18 @@ function ModernHeader() {
               textDecoration: "none",
               display: "flex",
               alignItems: "center",
-              gap: "0.5rem",
+              gap: "0.75rem",
             }}
           >
-            <div
+            <img
+              src={taskkLogo}
+              alt="Taskk Logo"
               style={{
-                width: "32px",
-                height: "32px",
-                background: "linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)",
-                borderRadius: "0.5rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "1.25rem",
+                width: "36px",
+                height: "36px",
+                objectFit: "contain",
               }}
-            >
-              T
-            </div>
+            />
             <span>Taskk</span>
           </a>
 
